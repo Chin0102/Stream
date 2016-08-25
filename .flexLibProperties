@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="cn.chinuy.player.model.media.MediaTime"/>
+    <classEntry path="cn.chinuy.player.model.media.MediaProxy"/>
+    <classEntry path="cn.chinuy.player.model.media.MediaQualities"/>
+    <classEntry path="cn.chinuy.player.model.media.IMedia"/>
+    <classEntry path="cn.chinuy.player.controller.services.time.TimeOperateService"/>
+    <classEntry path="cn.chinuy.player.controller.services.time.ITimeService"/>
+    <classEntry path="cn.chinuy.player.controller.services.play.IPlayService"/>
+    <classEntry path="cn.chinuy.player.controller.services.quality.IQualityService"/>
+    <classEntry path="cn.chinuy.player.controller.services.quality.QualityService"/>
+    <classEntry path="cn.chinuy.player.controller.processors.InterruptProcessor"/>
+    <classEntry path="cn.chinuy.player.controller.processors.ForcedPauseProcessor"/>
+    <classEntry path="cn.chinuy.player.controller.services.play.StartService"/>
+    <classEntry path="cn.chinuy.player.controller.services.play.LostControlService"/>
+    <classEntry path="cn.chinuy.player.controller.services.preload.StartSuccessor"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
