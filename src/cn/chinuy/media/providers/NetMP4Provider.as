@@ -6,8 +6,8 @@ package cn.chinuy.media.providers {
 	 */
 	public class NetMP4Provider extends VideoProvider {
 		
-		public function NetMP4Provider( loadPolicyFile : Boolean = false ) {
-			super( new MP4NetStream( loadPolicyFile ));
+		public function NetMP4Provider( loadPolicyFile : Boolean = false, useTime : Boolean = true, key : String = "start" ) {
+			super( new MP4NetStream( loadPolicyFile, useTime, key ));
 		}
 	}
 }

@@ -6,8 +6,8 @@ package cn.chinuy.media.providers {
 	 */
 	public class NetFLVProvider extends VideoProvider {
 		
-		public function NetFLVProvider( loadPolicyFile : Boolean = false ) {
-			super( new FLVNetStream( loadPolicyFile ));
+		public function NetFLVProvider( loadPolicyFile : Boolean = false, useTime : Boolean = false, key : String = "start" ) {
+			super( new FLVNetStream( loadPolicyFile, useTime, key ));
 		}
 	}
 }

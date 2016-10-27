@@ -6,16 +6,23 @@ package cn.chinuy.media.elements.video.http {
 	 */
 	public class FLVNetStream extends BaseNetStream {
 		
-		public function FLVNetStream( loadPolicyFile : Boolean = false ) {
+		private var useTime : Boolean;
+		private var key : String;
+		
+		public function FLVNetStream( loadPolicyFile : Boolean = false, useTime : Boolean = false, key : String = "start" ) {
 			super();
 			checkPolicyFile = loadPolicyFile;
+			this.useTime = useTime;
+			this.key = key;
 		}
 		
 		override protected function serverSeek( offset : Number ) : Boolean {
 			var s : Boolean = super.serverSeek( offset );
 			if( s ) {
 				dispatchEvent( new LoadEvent( LoadEvent.Stop ));
-				hs_play( getFlvURL( url, { start:bytesInitial }));
+				var p : Object = {};
+				p[ key ] = useTime ? Math.round( timeInitial ) : bytesInitial;
+				hs_play( getFlvURL( url, p ));
 			}
 			return s;
 		}

@@ -7,9 +7,14 @@ package cn.chinuy.media.elements.video.http {
 	 */
 	public class MP4NetStream extends BaseNetStream {
 		
-		public function MP4NetStream( loadPolicyFile : Boolean = false ) {
+		private var useTime : Boolean;
+		private var key : String;
+		
+		public function MP4NetStream( loadPolicyFile : Boolean = false, useTime : Boolean = true, key : String = "start" ) {
 			super();
 			checkPolicyFile = loadPolicyFile;
+			this.useTime = useTime;
+			this.key = key;
 		}
 		
 		override public function get time() : Number {
@@ -46,7 +51,9 @@ package cn.chinuy.media.elements.video.http {
 				_timeInitial = offset;
 			}
 			dispatchEvent( new LoadEvent( LoadEvent.Stop ));
-			hs_play( getFlvURL( url, { start:timeInitial }));
+			var p : Object = {};
+			p[ key ] = useTime ? bytesInitial : timeInitial;
+			hs_play( getFlvURL( url, p ));
 			return true;
 		}
 	
