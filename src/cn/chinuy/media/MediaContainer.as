@@ -59,13 +59,13 @@ package cn.chinuy.media {
 		public function set provider( m : IMediaProvider ) : void {
 			removeProvider();
 			mediaProvider = m;
+			provider.addEventListener( VisualResizeEvent.Resize, dispatchEvent );
+			onAddProvider();
 			provider.addEventListener( LoadEvent.All, dispatchEvent );
 			provider.addEventListener( PlayEvent.All, dispatchEvent );
 			provider.addEventListener( SeekEvent.All, dispatchEvent );
 			provider.addEventListener( BufferEvent.All, dispatchEvent );
 			provider.addEventListener( SettingEvent.All, dispatchEvent );
-			provider.addEventListener( VisualResizeEvent.Resize, dispatchEvent );
-			onAddProvider();
 			addChild( provider.displayObject );
 		}
 		
