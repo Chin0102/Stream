@@ -132,20 +132,12 @@ package cn.chinuy.media.providers {
 			element.bufferTime = value;
 		}
 		
-		public function get bytesInitial() : uint {
+		public function get bytesInitial() : Number {
 			return element.bytesInitial;
 		}
 		
-		public function get bytesFinal() : uint {
+		public function get bytesFinal() : Number {
 			return element.bytesFinal;
-		}
-		
-		public function get bytesLoaded() : uint {
-			return element.bytesLoaded;
-		}
-		
-		public function get bytesTotal() : uint {
-			return element.bytesTotal;
 		}
 		
 		public function get timeInitial() : Number {

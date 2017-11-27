@@ -7,13 +7,13 @@ package cn.chinuy.media.elements.video.http {
 	public class BaseNetStream extends BaseStream {
 		
 		protected var _timeInitial : Number = 0;
-		protected var _bytesInitial : uint = 0;
+		protected var _bytesInitial : Number = 0;
 		
 		public function BaseNetStream() {
 			super();
 		}
 		
-		override public function get bytesInitial() : uint {
+		override public function get bytesInitial() : Number {
 			return _bytesInitial;
 		}
 		

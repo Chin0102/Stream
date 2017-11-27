@@ -40,14 +40,22 @@ package cn.chinuy.media.elements.video.base {
 			n = Math.pow( 10, n );
 			return Math.round( i * n ) / n;
 		}
+
+		private static function GetConnection( connection : NetConnection ) : NetConnection{
+            if( connection == null ) {
+                connection = new Connection();
+                connection.connect( null );
+            }
+			return connection;
+		}
 		
 		protected var durativeSeek : Boolean;
 		protected var loadCompleted : Boolean;
 		protected var paused : Boolean;
 		protected var seeking : Boolean;
 		protected var checkPlayCompletePengding : Boolean;
-		private var currentBytesLoadedValue : uint = 0;
-		private var currentBytesTotalValue : uint = 0;
+		private var currentBytesLoadedValue : Number = 0;
+		private var currentBytesTotalValue : Number = 0;
 		private var seekFilter : Timer = new Timer( 300 );
 		private var seekStateChecker : Timer = new Timer( 500 );
 		private var bufferFullChecker : Timer = new Timer( 100 );
@@ -55,11 +63,7 @@ package cn.chinuy.media.elements.video.base {
 		private var seekOperatingValue : Boolean = false;
 		
 		public function BaseStream( connection : NetConnection = null ) {
-			if( connection == null ) {
-				connection = new Connection();
-				connection.connect( null );
-			}
-			super( connection );
+			super( GetConnection( connection ) );
 			seekFilter.addEventListener( TimerEvent.TIMER, seekTimeOut );
 			seekStateChecker.addEventListener( TimerEvent.TIMER, checkSeekState );
 			bufferFullChecker.addEventListener( TimerEvent.TIMER, checkBufferFull );
@@ -302,7 +306,7 @@ package cn.chinuy.media.elements.video.base {
 			}
 		}
 		
-		override public function get bytesFinal() : uint {
+		override public function get bytesFinal() : Number {
 			return bytesInitial + currentBytesLoaded;
 		}
 		
@@ -317,11 +321,11 @@ package cn.chinuy.media.elements.video.base {
 			return 0;
 		}
 		
-		public function get currentBytesTotal() : uint {
+		public function get currentBytesTotal() : Number {
 			return currentBytesTotalValue;
 		}
 		
-		public function get currentBytesLoaded() : uint {
+		public function get currentBytesLoaded() : Number {
 			return currentBytesLoadedValue;
 		}
 		
@@ -409,6 +413,10 @@ package cn.chinuy.media.elements.video.base {
 			}
 		}
 		
+		protected function updateBytesInfo() : void {
+		
+		}
+		
 		protected function checkLoadComplete() : void {
 			if( ns_loadEnd ) {
 				loadCompleted = true;
@@ -462,11 +470,14 @@ package cn.chinuy.media.elements.video.base {
 			}
 		}
 		
-		protected function get base_bytesTotal() : uint {
-			return super.bytesTotal;
+		protected function get base_bytesTotal() : Number {
+			if( videoMetadata && videoMetadata.filesize > 0xFFFFFFFF ) {
+				return videoMetadata.filesize;
+			}
+			return 0; //super.bytesTotal;
 		}
 		
-		protected function get base_bytesLoaded() : uint {
+		protected function get base_bytesLoaded() : Number {
 			return super.bytesLoaded;
 		}
 	}

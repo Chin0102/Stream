@@ -166,19 +166,11 @@ package cn.chinuy.media.providers {
 			return 0;
 		}
 		
-		override public function get bytesInitial() : uint {
+		override public function get bytesInitial() : Number {
 			return 0;
 		}
 		
-		override public function get bytesFinal() : uint {
-			return 0;
-		}
-		
-		override public function get bytesLoaded() : uint {
-			return 0;
-		}
-		
-		override public function get bytesTotal() : uint {
+		override public function get bytesFinal() : Number {
 			return 0;
 		}
 	}

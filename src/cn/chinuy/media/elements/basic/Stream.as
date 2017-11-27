@@ -242,11 +242,11 @@ package cn.chinuy.media.elements.basic {
 			return 0;
 		}
 		
-		public function get bytesInitial() : uint {
+		public function get bytesInitial() : Number {
 			return 0;
 		}
 		
-		public function get bytesFinal() : uint {
+		public function get bytesFinal() : Number {
 			return 0;
 		}
 		

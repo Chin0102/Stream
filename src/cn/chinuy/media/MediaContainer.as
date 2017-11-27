@@ -299,25 +299,13 @@ package cn.chinuy.media {
 				provider.bufferTime = value;
 		}
 		
-		public function get bytesInitial() : uint {
+		public function get bytesInitial() : Number {
 			if( provider )
 				return provider.bytesInitial;
 			return 0;
 		}
 		
-		public function get bytesLoaded() : uint {
-			if( provider )
-				return provider.bytesLoaded;
-			return 0;
-		}
-		
-		public function get bytesTotal() : uint {
-			if( provider )
-				return provider.bytesTotal;
-			return 0;
-		}
-		
-		public function get bytesFinal() : uint {
+		public function get bytesFinal() : Number {
 			if( provider )
 				return provider.bytesFinal;
 			return 0;

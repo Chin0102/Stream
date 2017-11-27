@@ -31,19 +31,10 @@ package cn.chinuy.media.core {
 		function get bufferTime() : Number;
 		function set bufferTime( value : Number ) : void;
 		
-		//总字节
-		function get bytesTotal() : uint;
-		//已加载字节
-		function get bytesLoaded() : uint;
-		
-		//当前加载段的总字节
-		//function get currentBytesTotal() : uint;
-		//当前加载段的已加载字节
-		//function get currentBytesLoaded() : uint;
 		//当前加载段的起始位置
-		function get bytesInitial() : uint;
+		function get bytesInitial() : Number;
 		//当前加载段的结束位置
-		function get bytesFinal() : uint;
+		function get bytesFinal() : Number;
 		
 		function get timeInitial() : Number;
 		function get timeFinal() : Number;

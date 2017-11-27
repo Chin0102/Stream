@@ -20,6 +20,16 @@ package cn.chinuy.media.elements.live {
 			bufferChecker.addEventListener( TimerEvent.TIMER, checkBuffer );
 		}
 		
+//		override protected function onMetaData( metadataObj : Object ) : void {
+//			ready_metadata = false;
+//			super.onMetaData( metadataObj );
+//		}
+//		
+//		override protected function checkStreamReady() : void {
+//			ready_metadata = true;
+//			super.checkStreamReady();
+//		}
+		
 		override protected function initNetStatusHandler() : void {
 			super.initNetStatusHandler();
 			addNetStatusHandler( NetStatus.BufferFlush, onBufferFlush );

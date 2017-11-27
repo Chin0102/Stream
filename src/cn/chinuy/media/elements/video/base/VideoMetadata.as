@@ -74,7 +74,7 @@ package cn.chinuy.media.elements.video.base {
 			return _keyframeLength;
 		}
 		
-		public function getFileposition( index : int ) : int {
+		public function getFileposition( index : int ) : Number {
 			if( index < 0 || index >= _keyframeLength )
 				return -1;
 			return _filepositions[ index ];
@@ -86,7 +86,7 @@ package cn.chinuy.media.elements.video.base {
 			return _times[ index ];
 		}
 		
-		public function getFilepositionIndex( fileposition : int ) : int {
+		public function getFilepositionIndex( fileposition : Number ) : int {
 			return _filepositions.indexOf( fileposition );
 		}
 		
@@ -94,7 +94,7 @@ package cn.chinuy.media.elements.video.base {
 			return _times.indexOf( time );
 		}
 		
-		public function setKeyframe( index : int, filePosition : int, time : Number ) : void {
+		public function setKeyframe( index : int, filePosition : Number, time : Number ) : void {
 			if( hasKeyframes && index < _filepositions.length ) {
 				_times[ index ] = time;
 				_filepositions[ index ] = filePosition;
@@ -129,7 +129,7 @@ package cn.chinuy.media.elements.video.base {
 			return start;
 		}
 		
-		public function filePosition2Time( filePosition : int ) : Number {
+		public function filePosition2Time( filePosition : Number ) : Number {
 			if( hasKeyframes ) {
 				var i1 : int = getKeyframeIndex( filePosition, false );
 				var t1 : Number = getTime( i1 );
