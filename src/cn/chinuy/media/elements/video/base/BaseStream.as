@@ -474,7 +474,7 @@ package cn.chinuy.media.elements.video.base {
 			if( videoMetadata && videoMetadata.filesize > 0xFFFFFFFF ) {
 				return videoMetadata.filesize;
 			}
-			return 0; //super.bytesTotal;
+			return super.bytesTotal;
 		}
 		
 		protected function get base_bytesLoaded() : Number {
